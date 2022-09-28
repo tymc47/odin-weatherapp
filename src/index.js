@@ -1,13 +1,45 @@
 const apiKey = "54d0860a627f9ab3e9b38e0eaf536b7c";
 
+function getBackground(weatherId) {
+  const body = document.querySelector("body");
+  if (weatherId >= 200 && weatherId < 300) {
+    body.style.backgroundImage = "url('./background/lightning.jpg')";
+    return;
+  }
+  if (weatherId < 400) {
+    body.style.backgroundImage = "url('./background/drizzle.jpg')";
+    return;
+  }
+  if (weatherId < 600) {
+    body.style.backgroundImage = "url('./background/rain.jpg')";
+    return;
+  }
+  if (weatherId < 700) {
+    body.style.backgroundImage = "url('./background/snow.jpg')";
+    return;
+  }
+  if (weatherId < 800) {
+    body.style.backgroundImage = "url('./background/fog.jpg')";
+    return;
+  }
+  if (weatherId === 800) {
+    body.style.backgroundImage = "url('./background/clearsky.jpg')";
+    return;
+  }
+  if (weatherId > 800) {
+    body.style.backgroundImage = "url('./background/cloudy.jpg')";
+  }
+}
+
 function displayInfo(Data) {
   Data.then((weatherData) => {
     const weatherId = weatherData.weather[0].id;
+    getBackground(weatherId);
+    document.querySelector("#errormsg").textContent = " ";
     document.querySelector("#cityname").textContent = weatherData.name;
     document.querySelector("#temperature").textContent = `${Math.round(
       weatherData.main.temp
     )}°C`;
-    console.log(typeof weatherData.main.temp);
     document.querySelector("#temp-max").textContent = `H: ${Math.round(
       weatherData.main.temp_max
     )}°C`;
@@ -19,8 +51,9 @@ function displayInfo(Data) {
     document.querySelector("#humidity").textContent = `Humdity: ${Math.round(
       weatherData.main.humidity
     )}%`;
-  }).catch((err) => {
-    console.log(err);
+  }).catch(() => {
+    document.querySelector("#errormsg").textContent =
+      "Cannot find city, please try again";
   });
 }
 
