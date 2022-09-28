@@ -1,32 +1,69 @@
+body {
+    position: relative;
+    padding: 0%;
+    margin: 0%;
+    height: 100vh;
+}
+
 .info {
+    position: absolute;
+    top: 10%;
+    left: 10%;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
     width: 320px;
     height: 320px;
+    background-color: #262626;
+    opacity: 0.8;
+    border-radius: 20px;
+    color: #f9f9f9;
 }
 
 span#cityname {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 2rem;
 }
 
 span#temperature {
     grid-column: 1 / 2;
     grid-row: 2 / 5;
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 20%;
 }
 
 
 span#description {
     grid-column: 2 / 4;
     grid-row: 2 / 3;
+    margin-top: 10%;
 }
 
 span#humidity {
     grid-column: 2 / 4;
-    grid-row: 3 /4;
+    grid-row: 3 / 4;
+    margin-top: 5%;
+
 }
 
-input[type=text] {
-    grid-column: 1 / 3;
+.search {
+    grid-column: 1 / 4;
+    display: flex;
+    height: 3rem;
+    margin: 5% 5%;
+}
+
+.search > input[type=text] {
+    flex: 1;
+    font-size: 1rem;
+}
+
+#errormsg {
+    grid-column: 1 / 4;
+    color: #ff073a;
+    margin-left: 7%;
 }
