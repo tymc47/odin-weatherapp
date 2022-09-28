@@ -1,0 +1,32 @@
+.info {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 320px;
+    height: 320px;
+}
+
+span#cityname {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+span#temperature {
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
+}
+
+
+span#description {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+}
+
+span#humidity {
+    grid-column: 2 / 4;
+    grid-row: 3 /4;
+}
+
+input[type=text] {
+    grid-column: 1 / 3;
+}
