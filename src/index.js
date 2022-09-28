@@ -1,0 +1,1 @@
+let weatherInfo = 1;
